@@ -31,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Imaarov\\LaravelDiskMonitor\\": "src/",
-            "Imaarov\\LaravelDiskMonitor\\Database\\Factories\\": "database/factories/"
+            "Imaarov\\DiskMonitor\\": "src/",
+            "Imaarov\\DiskMonitor\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Imaarov\\LaravelDiskMonitor\\Tests\\": "tests/"
+            "Imaarov\\DiskMonitor\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -57,10 +57,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Imaarov\\LaravelDiskMonitor\\LaravelDiskMonitorServiceProvider"
+                "Imaarov\\DiskMonitor\\DiskMonitorServiceProvider"
             ],
             "aliases": {
-                "LaravelDiskMonitor": "Imaarov\\LaravelDiskMonitor\\Facades\\LaravelDiskMonitor"
+                "DiskMonitor": "Imaarov\\DiskMonitor\\Facades\\DiskMonitor"
             }
         }
     },

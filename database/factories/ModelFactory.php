@@ -1,10 +1,9 @@
 <?php
 
-namespace Imaarov\LaravelDiskMonitor\Database\Factories;
+namespace Imaarov\DiskMonitor\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
 class ModelFactory extends Factory
 {
     protected $model = YourModel::class;
@@ -16,4 +15,3 @@ class ModelFactory extends Factory
         ];
     }
 }
-*/

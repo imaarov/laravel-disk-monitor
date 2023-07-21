@@ -8,10 +8,11 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('laravel_disk_monitor_table', function (Blueprint $table) {
+        Schema::create('disk_monitor_entries', function (Blueprint $table) {
             $table->id();
 
-            // add fields
+            $table->string('disk_name');
+            $table->integer('file_count');
 
             $table->timestamps();
         });

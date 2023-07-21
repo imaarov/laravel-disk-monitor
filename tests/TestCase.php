@@ -1,10 +1,10 @@
 <?php
 
-namespace Imaarov\LaravelDiskMonitor\Tests;
+namespace Imaarov\DiskMonitor\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Imaarov\DiskMonitor\DiskMonitorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Imaarov\LaravelDiskMonitor\LaravelDiskMonitorServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,24 +13,28 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Imaarov\\LaravelDiskMonitor\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Imaarov\\DiskMonitor\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            LaravelDiskMonitorServiceProvider::class,
+            DiskMonitorServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'testing');
+        config()->set('database.default', 'sqlite');
+        config()->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-disk-monitor_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_disk_monitor_tables.php.stub';
         $migration->up();
-        */
+
     }
 }

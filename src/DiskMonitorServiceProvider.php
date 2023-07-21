@@ -1,12 +1,12 @@
 <?php
 
-namespace Imaarov\LaravelDiskMonitor;
+namespace Imaarov\DiskMonitor;
 
+use Imaarov\DiskMonitor\Commands\RecordDiskMetric;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Imaarov\LaravelDiskMonitor\Commands\LaravelDiskMonitorCommand;
 
-class LaravelDiskMonitorServiceProvider extends PackageServiceProvider
+class DiskMonitorServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -19,7 +19,7 @@ class LaravelDiskMonitorServiceProvider extends PackageServiceProvider
             ->name('laravel-disk-monitor')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-disk-monitor_table')
-            ->hasCommand(LaravelDiskMonitorCommand::class);
+            ->hasMigration('create_disk-monitor_table')
+            ->hasCommand(RecordDiskMetric::class);
     }
 }

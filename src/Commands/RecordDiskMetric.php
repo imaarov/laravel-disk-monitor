@@ -1,12 +1,12 @@
 <?php
 
-namespace Imaarov\LaravelDiskMonitor\Commands;
+namespace Imaarov\DiskMonitor\Commands;
 
 use Illuminate\Console\Command;
 
-class LaravelDiskMonitorCommand extends Command
+class RecordDiskMetric extends Command
 {
-    public $signature = 'laravel-disk-monitor';
+    public $signature = 'record-disk-metric';
 
     public $description = 'My command';
 
