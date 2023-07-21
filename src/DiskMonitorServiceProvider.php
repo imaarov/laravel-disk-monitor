@@ -2,7 +2,7 @@
 
 namespace Imaarov\DiskMonitor;
 
-use Imaarov\DiskMonitor\Commands\RecordDiskMetric;
+use Imaarov\DiskMonitor\Commands\RecordDiskMetricCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,6 +20,6 @@ class DiskMonitorServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasMigration('create_disk-monitor_table')
-            ->hasCommand(RecordDiskMetric::class);
+            ->hasCommand(RecordDiskMetricCommand::class);
     }
 }
