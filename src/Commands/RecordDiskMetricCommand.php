@@ -16,16 +16,22 @@ class RecordDiskMetricCommand extends Command
     {
         $this->comment('Recording metrics...');
 
-        $disk_name = config('disk-monitor.disk_name');
-        $file_count = count(Storage::disk($disk_name)->allFiles());
-
-        DiskMonitorEntry::create([
-            'disk_name' => $disk_name,
-            'file_count' => $file_count,
-        ]);
+        collect($disk_names = config('disk-monitor.disk_names'))
+            ->each(fn(string $disk_name) => $this->recordMetrics($disk_name));
 
         $this->comment('All done!');
 
         return self::SUCCESS;
+    }
+
+    protected function recordMetrics(string $disk_name):void
+    {
+        $this->info("Recording metrics for disk `{$disk_name}`...");
+        $disk = Storage::disk($disk_name);
+        $file_count = count($disk->allFiles());
+        DiskMonitorEntry::create([
+            'disk_name' => $disk_name,
+            'file_count' => $file_count,
+        ]);
     }
 }
