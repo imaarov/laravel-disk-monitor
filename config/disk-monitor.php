@@ -7,6 +7,6 @@ return [
      */
     'disk_names' => [
         'local',
-        
+
     ],
 ];
