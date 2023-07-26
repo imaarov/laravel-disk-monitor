@@ -26,7 +26,7 @@ composer require imaarov/laravel-disk-monitor
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-disk-monitor-migrations"
+php artisan vendor:publish --provider="Imaarov\DiskMonitor\DiskMonitorServiceProvider"
 php artisan migrate
 ```
 
