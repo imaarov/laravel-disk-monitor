@@ -3,6 +3,7 @@
 namespace Imaarov\DiskMonitor\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Route;
 use Imaarov\DiskMonitor\DiskMonitorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -15,6 +16,8 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Imaarov\\DiskMonitor\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+
+        Route::diskMonitor('disk-monitor');
     }
 
     protected function getPackageProviders($app)

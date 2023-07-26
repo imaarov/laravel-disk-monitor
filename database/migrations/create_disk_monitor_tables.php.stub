@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('disk_monitor_entries', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
 
             $table->string('disk_name');
             $table->integer('file_count');
